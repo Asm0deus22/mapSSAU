@@ -18,6 +18,16 @@ const kHeight = mapImg.clientHeight / MAP_HEIGHT;
 // массив, содержащий элементы которые надо двигать
 var elementsEvent = [mapImg];
 
+// показательный код
+let keyArr = Array.from(graph.nodes.keys());
+let destNode = keyArr[Math.floor(Math.random() * keyArr.length)];
+let srcNode;
+do {
+    srcNode = keyArr[Math.floor(Math.random() * keyArr.length)];
+} while (destNode == srcNode);
+
+var fromToRoad = [srcNode].concat(pathFrom(graph.dijkstra(destNode), srcNode));
+
 // отрисовываем найденный маршрут и сохраняем
 // созданные контейнеры в массив
 roadsMapping(roads, coordsMapping, fromToRoad, elementsEvent);

@@ -65,7 +65,7 @@ class Graph {
         return graph;
     }
 
-    djikstra(startId) {
+    dijkstra(startId) {
         if (!this.nodes.has(startId)) {
             throw new Error('Start node not found');
         }
@@ -100,4 +100,14 @@ class Graph {
 
         return steps;
     }
+}
+
+pathFrom = (dijkstraPaths, fromId) => {
+    let current = dijkstraPaths[fromId];
+    let path = [];
+    while (current.next != null) {
+        path.push(current.next)
+        current = dijkstraPaths[current.next];
+    }
+    return path;
 }

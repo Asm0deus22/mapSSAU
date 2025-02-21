@@ -1,0 +1,29 @@
+body {
+    width: 100%;
+}
+
+.header {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 50px;
+    margin-left: 40%;
+}
+
+.map {
+    margin: 0 auto;
+    margin-top: 50px;
+    position: relative;
+    width: 1000px;
+    height: 700px;
+    background-color: #CC99CC;
+    overflow: hidden;
+    border: 10px solid #CC66CC;
+    border-radius: 50px;
+
+}
+
+.map__main {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 150%;
+}

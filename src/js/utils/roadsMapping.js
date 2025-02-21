@@ -25,7 +25,7 @@ const roadsMapping = (container, coords, routes, saveTo) => {
         
         // задаём картинке параметры
         let roadImg = document.createElement('img'); 
-        roadImg.src = 'images/4.jpg';
+        roadImg.src = 'images/4.png';
         roadImg.style.width = roadWidth + "px";
         roadImg.style.height = roadHeight + "px";
         

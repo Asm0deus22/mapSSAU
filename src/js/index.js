@@ -19,7 +19,7 @@ const kHeight = mapImg.clientHeight / MAP_HEIGHT;
 var elementsEvent = [mapImg];
 
 // показательный код
-let keyArr = Array.from(graph.nodes.keys());
+let keyArr = [1, 2, 3, 5, 7];
 let destNode = keyArr[Math.floor(Math.random() * keyArr.length)];
 let srcNode;
 do {
@@ -45,10 +45,27 @@ mapDiv.addEventListener('mousedown', (event) => {
     }
 });
 
+// аналогично mousedown, но для мобильных устройств
+mapDiv.addEventListener('touchstart', (event) => {
+    startX = event.touches[0].clientX;
+    startY = event.touches[0].clientY;
+
+    for (let i = 0; i < elementsEvent.length; i++) {
+        elementsEvent[i].addEventListener('touchmove', moveEvent);
+    }
+});
+
 // при отжатии мышки удаляем созданные события 
 // для перемещения карты и объектов на ней
 document.getElementsByTagName('body')[0].addEventListener('mouseup', (event) => {
     for (let i = 0; i < elementsEvent.length; i++) {
         elementsEvent[i].removeEventListener('mousemove', moveEvent);
+    }
+});
+
+// аналогично mouseup, но для мобильных устройств
+document.getElementsByTagName('body')[0].addEventListener('touchend', (event) => {
+    for (let i = 0; i < elementsEvent.length; i++) {
+        elementsEvent[i].removeEventListener('touchmove', moveEvent);
     }
 });
